@@ -3,7 +3,7 @@
  */
 package org.onebusaway.everylastlogin.server;
 
-class PluginAction {
+public class PluginAction {
 
   private String baseUrl;
 
