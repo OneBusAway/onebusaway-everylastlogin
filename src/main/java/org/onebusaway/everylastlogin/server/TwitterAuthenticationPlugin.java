@@ -89,6 +89,13 @@ public class TwitterAuthenticationPlugin implements AuthenticationPlugin {
 
     // String oauthToken = httpReq.getParameter("oauth_token");
     String oauthVerifier = httpReq.getParameter("oauth_verifier");
+    
+    if( oauthVerifier == null) {
+      AuthenticationResult result = new AuthenticationResult(
+          EResultCode.AUTHENTICATION_FAILED, LoginConstants.PROVIDER_TWITTER);
+      LoginManager.handleResult(httpReq, httpResp, result);
+      return;
+    }
 
     try {
       provider.retrieveAccessToken(consumer, oauthVerifier);
