@@ -3,25 +3,29 @@
   <parent>
     <artifactId>onebusaway</artifactId>
     <groupId>org.onebusaway</groupId>
-    <version>1.0.7</version>
+    <version>1.1.6</version>
   </parent>
-  <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway-everylastlogin</artifactId>
   <version>0.0.2-SNAPSHOT</version>
 
   <name>onebusaway-everylastlogin</name>
-  <description>A generic web-based authentication library, supporting OpenId, OAuth, Facebook, Twitter, etc
-  </description>
-
+  <description>A generic web-based authentication library, supporting OpenId, OAuth, Facebook, Twitter, etc.</description>
+  <url>https://github.com/OneBusAway/onebusaway-everylastlogin/wiki/</url>
+  
   <properties>
     <gwt.version>2.1.0</gwt.version>
   </properties>
 
   <scm>
-    <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway-everylastlogin/trunk</connection>
-    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway-everylastlogin/trunk</developerConnection>
-    <url>http://code.google.com/p/onebusaway/source/browse/#svn/onebusaway-everylastlogin/trunk</url>
+    <connection>scm:git:http://github.com/OneBusAway/onebusaway-everylastlogin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway-everylastlogin.git</developerConnection>
+    <url>http://github.com/OneBusAway/onebusaway-everylastlogin</url>
   </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/OneBusAway/onebusaway-everylastlogin/issues</url>
+  </issueManagement>
 
   <repositories>
     <repository>
@@ -134,7 +138,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.2</version>
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/package.xml</descriptor>
@@ -150,5 +153,34 @@
         </executions>
       </plugin>
     </plugins>
+    <pluginManagement>
+      <plugins>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>gwt-maven-plugin</artifactId>
+                    <versionRange>[2.1.0-1,)</versionRange>
+                    <goals>
+                      <goal>resources</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore></ignore>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>
